@@ -6,12 +6,12 @@
 
 ## 什么是包管理系统？
 
-首先，我这里所说的包管理系统是针对某个特定平台而言的，平台可以是Debian/Ubuntu/RedHat/Fedora等操作系统，也可以是node.js、python等编程语言／平台。 *包（package）* 有时也称作 *库（library）* 或者 *扩展（extension）* ，又或者 *插件* （各个平台有不同的习惯，其实基本是一回事，后面还有很多类似的情况。。。）。概括得说，包管理系统就是指某个平台上对第三方包进行统一组织管理的系统。很多软件也存在类似的扩展机制，比如常见的IDE/编辑器：Visual Studio、Eclipse、Sublime Text、Notepad++等，比如服务器监控程序：Zabbix、nagios、ganglia等，等等等，这个就太杂了，现在只总结操作系统和编程语言的。
+首先，我这里所说的包管理系统是针对某个特定平台而言的，平台可以是Debian/Ubuntu/RedHat/Fedora等操作系统，也可以是node.js、python等编程语言／平台。 *包（package）* 有时也称作 *库（library）* 或者 *扩展（extension）* ，又或者 *插件* （各个平台有不同的习惯，其实基本是一回事，后面还有很多类似的情况。。。）。概括得说，包管理系统就是指某个平台上对第三方包进行统一组织管理的系统。很多软件也存在类似的扩展机制，比如常见的IDE/编辑器：Visual Studio、Eclipse、Sublime Text、Notepad++等，再比如服务器监控程序：Zabbix、nagios、ganglia等，等等等，这个就太杂了，现在只总结操作系统和编程语言的。
 
 一个包管理系统一般由以下几部分组成：
 
 * 一套包的制作、描述、配置、发布 **规范** ，规定如何写一个包，发布的时候需要提供哪些描述信息，如何进行依赖配置／管理，以及如何发布包、发布到哪里。
-* 包的在线发布、管理 **平台** ，也就是包的 *源（source）／仓库（repository）／注册处（registry）/索引（index）* ，比如node.js中的[npmjs.org](https://npmjs.org)，python中的[pypi.python.org](https://pypi.python.org)等。有些平台的包管理器允许第三方的源，比如php上的pear可以设置第三方的channel。
+* 用于包的在线发布、管理的 **仓库（repository）** ，也就是包的 *源（source）／注册处（registry）/索引（index）/展馆（gallery）* ，比如node.js中的[npmjs.org](https://npmjs.org)，python中的[pypi.python.org](https://pypi.python.org)等。有些平台的包管理器允许使用第三方的仓库，比如php上的pear可以设置第三方的channel。
 * 包的本地安装、配置、升级、卸载 **工具** ，一般称作  *包管理器（package manager）* ，比如node.js中`npm`命令，python中`pip`命令等，同一个平台上可能存在多个这种工具，例如python中除了`pip`，还有 `easy_install`等。
 
 所以总结起来包管理系统就是：规范 ＋ 平台 ＋ 工具。
@@ -24,4 +24,4 @@
 
 - 包的发布
 - 包的安装、升级、卸载
-- 包的依赖管理，也有特别强调这一点的，称自己为 *依赖管理系统* ，比如php中的[http://getcomposer.org/](http://getcomposer.org/)
+- 包的依赖管理，也有特别强调这一点的，称自己为 *依赖管理系统* ，比如php中的[composer](http://getcomposer.org/)
