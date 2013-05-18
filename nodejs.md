@@ -37,7 +37,7 @@ npm规定所有使用它的项目应在根目录下建立一个 *package.json* �
 
 ### 发布包
 
-发布之前需要现在[npmjs.org]上注册一个账户，可以通过`npm register`注册，也可以直接到网站上注册。发布目前只能通过命令行来进行，先登陆，`npm login`，会提示输入用户名、密码和邮箱。登陆之后就可以`npm publish`了。发布之后，可以通过`npm show`查看包信息，包括已发布了哪些版本。
+发布之前需要现在[npmjs.org]上注册一个账户，可以通过`npm adduser`注册，也可以直接到网站上注册。发布目前只能通过命令行来进行，先登陆，`npm login`，会提示输入用户名、密码和邮箱。登陆之后就可以`npm publish`了。发布之后，可以通过`npm show`查看包信息，包括已发布了哪些版本。
 
 可能出现的问题：
 
@@ -48,13 +48,13 @@ npm规定所有使用它的项目应在根目录下建立一个 *package.json* �
 
 安装包主要通过`npm install`来实现，常用的有如下几种形式：
 
-- `npm install package [--save]`
-- `npm install package -g`
-- `npm install`
+- `npm install package [--save]` 在当前项目安装指定的包，包文件会被放到 **项目根目录** 下的 **node_modules** 文件夹中。项目根目录的判定方式为：在当前目录及父目录中寻找package.json或node_modueles文件夹，第一个存在该文件（夹）的目录作为项目根目录，如果都找不到，将当前目录作为根目录，为了避免不可预期的行为，建议每开始一个新项目，都用`npm init`初始化一个package.json文件。注意node_modules目录一般不应该使用版本控制工具进行追踪，比如使用git的话，要把它加到.gitignore文件。如果带`--save`参数的话，`npm`会自动更新package.json中dependencies项，否则不会更新。如果你要把这个包作为一个依赖的话，应该带上这个参数，如果是忘了带，可以手动更新package.json，或者重新执行一下该参数的install命令即可（第二次会很快，因为`npm`对包文件有缓存）。
+- `npm install package -g` 带`-g`表示安装到全局环境中，在我的Ubuntu中，是被安装到了`/usr/local/lib/node_modules/`目录中，全局安装一般用于带有命令行工具的包，比如[express](https://npmjs.org/package/express)，安装后相应的可执行文件会被加到`PATH`中，这样可以方便使用，比如全局安装express后，创建一个新的express项目，可以`express create expressproject`。值得注意的是，全局安装并不表示其它项目再使用该包的时候就不需要安装了，恰恰相反，每一个项目都应该单独安装自己的依赖，全局安装仅仅适用于提供命令行工具的包。每个项目独立管理自己的依赖，可以防止出现依赖冲突的情况，比如A项目依赖包P的低版本，B项目却依赖包P的高版本时，这种方式就显的很灵活，这也是我觉得node.js平台比python平台友好的地方（当然python也有virtualenv等环境管理方案，只是没有node.js这么好用、自然）。
+- `npm install` 前面说过包文件的安装目录node_modules不应该被添加到版本控制工具中，那么当我从git clone出一个项目的时候，该如何安装依赖呢？这个时候之前手动或通过`npm install --save`参数放到package.json的dependencies中的依赖信息就起作用了，直接在项目目录中`npm install`，`npm`会自动检查相关依赖信息，然后进行安装，很方便！
 
 ### 其它常用命令
 
-- `npm help`
+- `npm help [command]` 显示总的帮助信息或某个具体命令的帮助信息
 
 ### 关于代理
 
