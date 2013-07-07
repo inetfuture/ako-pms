@@ -22,10 +22,11 @@ npm规定所有使用它的项目应在根目录下建立一个 *package.json* �
 }
 ```
 说明：
-* 只有 *name* 和 *version* 是必需的，而且他们两个的组合应该是唯一的，如果你打算把这个包发布出去的话。如果你想重新发布一个经过修改的包，要记得修改 *version* 。
-* *name* 不能使用中文，而且如果发布出去的话，他会出现在URL中，比如`https://npmjs.org/package/packagename`，所以不能使用非URL安全的字符。另外，当别人在使用这个包的时候，会通过 `require('packageName')`来加载，所以太长也不好。
-* *version* 是有一定的格式要求的，一般都是采用 *major.minor.patch* 的格式，其中 *minor* 用偶数表示稳定版，用奇数表示开发版。
-* 除了上面两个必需的key之外，最常用的应该是`dependencies`，它用来声明当前项目的依赖。其格式很简单，是一个对象，key是依赖的包名，value是对依赖的版本要求。
+
+- 只有 *name* 和 *version* 是必需的，而且他们两个的组合应该是唯一的，如果你打算把这个包发布出去的话。如果你想重新发布一个经过修改的包，要记得修改 *version* 。
+- *name* 不能使用中文，而且如果发布出去的话，他会出现在URL中，比如`https://npmjs.org/package/packagename`，所以不能使用非URL安全的字符。另外，当别人在使用这个包的时候，会通过 `require('packageName')`来加载，所以太长也不好。
+- *version* 是有一定的格式要求的，一般都是采用 *major.minor.patch* 的格式，其中 *minor* 用偶数表示稳定版，用奇数表示开发版。
+- 除了上面两个必需的key之外，最常用的应该是`dependencies`，它用来声明当前项目的依赖。其格式很简单，是一个对象，key是依赖的包名，value是对依赖的版本要求。
 
 更详细的可以参考[这里](https://npmjs.org/doc/json.html)。该文件可以手动填写，也可以通过`npm init`以命令行交互的形式创建一个简略版本。
 
@@ -62,7 +63,7 @@ npm规定所有使用它的项目应在根目录下建立一个 *package.json* �
 
 `npm update [packagename]` 更新或安装package.json中列出的全部依赖，或者也可以指定其中的某几个包。未列在package.json中的包不会被更新，也就说更新是以package.json为准，而不是以node_modules文件夹中已安装的包。
 
-### 其它常用命令 
+### 其它常用命令
 
 - `npm help [command]` 显示总的帮助信息或某个具体命令的帮助信息。
 - `npm link` 这个命令可以方便的在包的开发过程中就行测试。使用方法：先在正在开发的包，比如mypackage，的目录中执行`npm link`，这样会在全局生成一个当前包的 *链接* ，然后在用来测试这个包的项目中执行`npm link mypackage`，如此就把这个包 *链* 到了当前的测试项目，在mypackage当中的任何更改，都可以直接反应到该测试项目中。

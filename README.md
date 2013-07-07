@@ -10,9 +10,9 @@
 
 一个包管理系统一般由以下几部分组成：
 
-* 一套包的制作、描述、配置、发布 **规范** ，规定如何写一个包，发布的时候需要提供哪些描述信息/控制信息，如何进行依赖配置／管理，以及如何发布包、发布到哪里。
-* 用于包的在线发布、管理的 **仓库（repository）** ，也就是包的 *源（source）／注册处（registry）/索引（index）/展馆（gallery）* ，比如node.js中的[npmjs.org](https://npmjs.org)，python中的[pypi.python.org](https://pypi.python.org)等。有些平台的包管理器允许使用第三方的仓库，比如php上的pear可以设置第三方的channel，ubuntu上的apt也可以手动添加source。
-* 包的本地安装、配置、升级、卸载 **工具** ，一般称作  *包管理器（package manager）* ，比如node.js中`npm`命令，python中`pip`命令等，同一个平台上可能存在多个这种工具，例如python中除了`pip`，还有 `easy_install`等。
+- 一套包的制作、描述、配置、发布 **规范** ，规定如何写一个包，发布的时候需要提供哪些描述信息/控制信息，如何进行依赖配置／管理，以及如何发布包、发布到哪里。
+- 用于包的在线发布、管理的 **仓库（repository）** ，也就是包的 *源（source）／注册处（registry）/索引（index）/展馆（gallery）* ，比如node.js中的[npmjs.org](https://npmjs.org)，python中的[pypi.python.org](https://pypi.python.org)等。有些平台的包管理器允许使用第三方的仓库，比如php上的pear可以设置第三方的channel，ubuntu上的apt也可以手动添加source。
+- 包的本地安装、配置、升级、卸载 **工具** ，一般称作  *包管理器（package manager）* ，比如node.js中`npm`命令，python中`pip`命令等，同一个平台上可能存在多个这种工具，例如python中除了`pip`，还有 `easy_install`等。
 
 所以总结起来包管理系统就是：规范 ＋ 平台 ＋ 工具。
 
